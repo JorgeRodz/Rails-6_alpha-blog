@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   # assing a route using a controller
   get 'about', to: 'pages#about'
 
-  resources :articles, only: [:show, :index, :new, :create]
+  resources :articles, only: [:show, :index, :new, :create, :edit]
 
 end
