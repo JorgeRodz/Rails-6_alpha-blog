@@ -37,4 +37,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path # This means we are redirecting to the articles index, showing all the articles we have.
+  end
+
 end

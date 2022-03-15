@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # assing a route using a controller
   get 'about', to: 'pages#about'
 
-  resources :articles, only: [:show, :index, :new, :create, :edit, :update]
+  # resources :articles, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  resources :articles # This line is the same as above providing the REST pattern -> Representation State Transfer - mapping HTTP verbs (get, post, put/patch, delete) to CRUD actions just like the line above. This is also provides REST-ful routes...this means we can acces this values like an API RESTFUl providing a JSON response and working the frontend with other tecnologies like React, Angular, Vue, etc. In this case we just want to work with the Rails Fullstack.
 
 end
