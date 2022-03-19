@@ -52,7 +52,9 @@ group :test do
   gem 'webdrivers'
 end
 
+# Creamos este grupo de produccion especialmente para hacer deploy de nuestra aplicacion en Heroku; ya que este utiliza la BD Postgresql.
 group :production do
+  # Gema necesaria para migrar nuestra BD a Heroku usando Postgresql
   gem 'pg'
 end
 
