@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" id="logo" href="#">Alpha blog</a>
+  <%= link_to "Alpha blog", root_path, id: 'logo', class: 'navbar-brand'%>
   <button
     class="navbar-toggler"
     type="button"
@@ -19,9 +19,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"
-          >Home <span class="sr-only">(current)</span></a
-        >
+        <%= link_to "Articles", articles_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
