@@ -1,5 +1,32 @@
 @import "bootstrap/dist/css/bootstrap";
 
+/* prettier-ignore */
+@mixin respond($breakpoint) {
+  // max-width
+  @if $breakpoint == tablet-landscape {
+    @media only screen and (max-width: 75em) {              // 1200px / 16 = 75em
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-portrait {
+    @media only screen and (max-width: 56.25em) {           // 900px / 16 = 56.25em
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {            // 600px / 16 = 37.5
+      @content;
+    }
+  }
+
+  //min-width
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {          // 1800px / 16 = 112.5em
+      @content;
+    }
+  }
+}
+
 /*--------------- Variables -----------------*/
 
 $color-black: #222222;
@@ -182,4 +209,39 @@ body {
 
 .articles-container {
   flex: 1 0 auto;
+
+  .card {
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin: 4rem auto;
+    width: 50%;
+
+    @include respond(tablet-portrait) {
+      width: 80%;
+    }
+
+    &-title {
+      font-weight: bold;
+      color: green;
+      letter-spacing: 1px;
+    }
+
+    &__buttons {
+      a {
+        display: inline-block;
+        transition: all 0.2s;
+
+        &:not(:last-of-type) {
+          margin-right: 1rem;
+        }
+
+        &:hover {
+          transform: translateY(-3px);
+          font-weight: 500;
+        }
+      }
+    }
+  }
 }

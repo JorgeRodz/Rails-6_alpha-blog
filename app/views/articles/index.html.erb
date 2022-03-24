@@ -1,28 +1,25 @@
-<div class="articles-container">
+<div class="articles-container text-center mt-4">
   <h1>Articles listing page</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th colspan="3">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <!--                                      This param is optional here -->
-        <td><%= link_to "Show", article_path(article), method: :get %></td>
-        <td><%= link_to "Edit", edit_article_path(article) %></td>
-        <!-- here the method: is mandatory in order to work. -->
-        <td><%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }  %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @articles.each do |article| %>
+    <div class="card text-center">
+      <div class="card-header font-italic">
+        by Jorge Rodriguez
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= article.title %></h5>
+        <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+        <div class="card__buttons">
+          <%= link_to "View", article_path(article), method: :get, class: 'btn btn-success' %>
+          <%= link_to "Edit", edit_article_path(article), class: 'btn btn-primary' %>
+          <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'  %>
+      </div>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created ago <%= time_ago_in_words(article.created_at) %>, edited ago <%= time_ago_in_words(article.updated_at) %></small>
+      </div>
+    </div>
+  <% end %>
 
   <p>
     <%= link_to "Create new article", new_article_path %>
