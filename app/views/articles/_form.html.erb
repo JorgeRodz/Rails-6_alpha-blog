@@ -1,33 +1,33 @@
-<% if @article.errors.any? %>
-  <h2>The following errors preventing articles to being saved</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li> <%= msg %> </li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="custom__form">
+  <% if @article.errors.any? %>
+    <h2>The following errors preventing articles to being saved</h2>
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+        <li> <%= msg %> </li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<!--  when passing a model record, Rails infers the URL and method -->
-<!--              model        to use standar http request-->
-<%= form_with(model: @article, local: true) do |f| %>
-  <p>
-    <%= f.label :title %><br/>
-    <%= f.text_field :title %>
-  </p>
+  <!--  when passing a model record, Rails infers the URL and method -->
+  <!--              model        to use standar http request-->
+  <%= form_with(model: @article, local: true) do |f| %>
+    <p class="custom__input">
+      <%= f.label :title %><br/>
+      <%= f.text_field :title, placeholder: 'Awesome title here' %>
+    </p>
 
-  <p>
-    <%= f.label :description %><br/>
-    <%= f.text_area :description %>
-  </p>
+    <p class="custom__input">
+      <%= f.label :description %><br/>
+      <%= f.text_area :description, placeholder: 'Awesome description here' %>
+    </p>
 
-  <p>
-    <%= if @article.id
-        f.submit "Update article"
-      else
-        f.submit "Create article"
-      end
-    %>
-  </p>
-
-
-<% end %>
+    <p class='custom__buttom'>
+      <%= if @article.id
+          f.submit "Update article"
+        else
+          f.submit "Create article"
+        end
+      %>
+    </p>
+  <% end %>
+</div>

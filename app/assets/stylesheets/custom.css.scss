@@ -49,6 +49,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: $color-light-gray;
 }
 
 /*---------------- application.html.erb ----------------*/
@@ -209,6 +210,8 @@ body {
 
 .articles-container {
   flex: 1 0 auto;
+  background-color: $color-light-gray;
+  padding-top: 3rem;
 
   .card {
     border-radius: 20px;
@@ -218,8 +221,12 @@ body {
     margin: 4rem auto;
     width: 50%;
 
+    &:first-of-type {
+      margin-top: 3rem;
+    }
+
     @include respond(tablet-portrait) {
-      width: 80%;
+      width: 85%;
     }
 
     &-title {
@@ -243,5 +250,105 @@ body {
         }
       }
     }
+  }
+}
+
+/*--------------- articles/_form -----------------*/
+
+.custom__form {
+  background-color: #1f334a;
+  border: 5px solid #fff;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  text-align: left;
+  width: 60%;
+
+  @include respond(tablet-portrait) {
+    width: 90%;
+  }
+
+  .custom__input,
+  .field_with_errors {
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    input {
+      display: block;
+      width: 100%;
+
+      &:focus {
+        outline: 2px solid #ffa164;
+      }
+
+      &::placeholder {
+        color: rgba(128, 128, 128, 0.5);
+        font-style: italic;
+        font-weight: 600;
+      }
+    }
+
+    textarea {
+      display: block;
+      width: 100%;
+      height: 35vh;
+      resize: none;
+
+      &::placeholder {
+        color: rgba(128, 128, 128, 0.5);
+        font-style: italic;
+        font-weight: 600;
+      }
+
+      &:focus {
+        outline: 2px solid #ffa164;
+      }
+    }
+  }
+
+  .custom__buttom {
+    text-align: center;
+    margin-top: 2rem;
+
+    input {
+      border: none;
+      border-radius: 5px;
+      color: #1f334a;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.2s;
+      padding: 0.5rem 1rem;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+/*--------------- articles/new -----------------*/
+
+.new-articles-container {
+  flex: 1 0 auto;
+  background-color: $color-light-gray;
+  padding-top: 3rem;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
+
+/*--------------- articles/edit -----------------*/
+
+.edit-articles-container {
+  flex: 1 0 auto;
+  background-color: $color-light-gray;
+  padding-top: 3rem;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 2rem;
   }
 }
