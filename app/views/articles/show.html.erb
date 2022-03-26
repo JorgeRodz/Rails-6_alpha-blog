@@ -1,11 +1,22 @@
 <div class="show-articles-container">
-  <h1>Showing article details </h1>
+  <h2><%= @article.title %></h2>
 
-  <p>Title: <strong><%= @article.title %></strong></p>
-  <p>Description: <strong><%= @article.description %></strong></p>
-  <p>Created_at: <strong><%= @article.created_at %></strong></p>
+  <div class="card text-center">
+    <div class="card-header font-italic">
+      by Jorge Rodriguez
+    </div>
+    <div class="card-body">
+      <div class="card-text"><%= simple_format(@article.description) %></div>
+      <div class="card__buttons">
 
-  <%= link_to "Edit", edit_article_path(@article) %> |
-  <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %> |
+        <%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary' %>
+        <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'  %>
+    </div>
+    </div>
+    <div class="card-footer text-muted">
+      <small>Created ago <%= time_ago_in_words(@article.created_at) %>, edited ago <%= time_ago_in_words(@article.updated_at) %></small>
+    </div>
+  </div>
+
   <%= link_to "Return to articles listing", articles_path  %>
 </div>
