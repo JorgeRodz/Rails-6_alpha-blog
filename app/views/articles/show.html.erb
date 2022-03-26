@@ -1,9 +1,11 @@
-<h1>Showing article details </h1>
+<div class="show-articles-container">
+  <h1>Showing article details </h1>
 
-<p>Title: <strong><%= @article.title %></strong></p>
-<p>Description: <strong><%= @article.description %></strong></p>
-<p>Created_at: <strong><%= @article.created_at %></strong></p>
+  <p>Title: <strong><%= @article.title %></strong></p>
+  <p>Description: <strong><%= @article.description %></strong></p>
+  <p>Created_at: <strong><%= @article.created_at %></strong></p>
 
-<%= link_to "Edit", edit_article_path(@article) %> |
-<%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %> |
-<%= link_to "Return to articles listing", articles_path  %>
+  <%= link_to "Edit", edit_article_path(@article) %> |
+  <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to "Return to articles listing", articles_path  %>
+</div>

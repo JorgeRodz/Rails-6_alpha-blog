@@ -49,7 +49,31 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: $color-light-gray;
+  background-color: $color-light-gray !important;
+}
+
+/*--------------- shared/_errors -----------------*/
+
+.custom__alert-error {
+  margin: 0 auto;
+  text-align: left;
+  width: 55rem;
+
+  @include respond(tablet-portrait) {
+    width: 90%;
+  }
+}
+
+/*--------------- layouts/_messages -----------------*/
+
+.custom__alert-success {
+  margin: 0.5rem auto;
+  text-align: left;
+  width: 55rem;
+
+  @include respond(tablet-portrait) {
+    width: 90%;
+  }
 }
 
 /*---------------- application.html.erb ----------------*/
@@ -219,7 +243,7 @@ body {
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
       rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     margin: 4rem auto;
-    width: 50%;
+    width: 40rem;
 
     &:first-of-type {
       margin-top: 3rem;
@@ -262,7 +286,7 @@ body {
   margin: 0 auto;
   padding: 1rem 2rem;
   text-align: left;
-  width: 60%;
+  width: 55rem;
 
   @include respond(tablet-portrait) {
     width: 90%;
@@ -330,6 +354,19 @@ body {
 /*--------------- articles/new -----------------*/
 
 .new-articles-container {
+  flex: 1 0 auto;
+  background-color: $color-light-gray;
+  padding-top: 3rem;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
+
+/*--------------- articles/show -----------------*/
+
+.show-articles-container {
   flex: 1 0 auto;
   background-color: $color-light-gray;
   padding-top: 3rem;
