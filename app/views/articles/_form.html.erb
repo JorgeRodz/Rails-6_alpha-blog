@@ -1,13 +1,5 @@
+<%= render 'shared/errors' %>
 <div class="custom__form">
-  <% if @article.errors.any? %>
-    <h2>The following errors preventing articles to being saved</h2>
-    <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li> <%= msg %> </li>
-      <% end %>
-    </ul>
-  <% end %>
-
   <!--  when passing a model record, Rails infers the URL and method -->
   <!--              model        to use standar http request-->
   <%= form_with(model: @article, local: true) do |f| %>
