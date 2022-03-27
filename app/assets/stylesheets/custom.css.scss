@@ -98,13 +98,15 @@ body {
 
   .navbar-nav {
     .nav-item {
-      .nav-link {
+      .custom__link {
         color: $color-light-gray;
 
         display: inline-block;
         position: relative;
         margin: auto 0.5rem;
-        padding: 0rem 0.1rem;
+        padding-bottom: 3px;
+        padding-left: 3px;
+        padding-right: 3px;
 
         &::after {
           position: absolute;
@@ -121,6 +123,34 @@ body {
 
         &:hover::after {
           width: 100%;
+        }
+      }
+
+      .custom__dropdown {
+        color: $color-light-gray;
+        margin: auto 0.5rem;
+        transition: all 0.2s;
+
+        &::after {
+          transition: all 0.2s;
+        }
+
+        &:hover {
+          color: gray;
+
+          &::after {
+            transform: translateY(3px);
+          }
+        }
+      }
+    }
+
+    .dropdown {
+      &-item {
+        transition: all 0.2s;
+
+        &:hover {
+          color: #a7a7a7;
         }
       }
     }
@@ -143,6 +173,13 @@ body {
       margin: 4px 0;
     }
   }
+}
+
+.custom__navbar {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 /* ----- footer ----- */
@@ -209,7 +246,12 @@ body {
   background-size: 20rem;
   background-repeat: repeat;
 
-  padding: 0 5%;
+  padding: 0 10%;
+  padding-top: 4%;
+
+  @include respond(tablet-portrait) {
+    padding-top: 18%;
+  }
 
   .jumbotron {
     display: flex;
@@ -225,8 +267,25 @@ body {
       asset-url("homepage-hero.jpg");
     background-size: cover;
     background-position: bottom right;
-    height: 80%;
-    margin-bottom: 0;
+    border-radius: 2rem;
+    height: 40rem;
+    margin: 2rem auto;
+    padding: 0 10rem;
+
+    @include respond(tablet-portrait) {
+      height: max-content;
+      padding: 2rem 1rem;
+    }
+
+    & > * {
+      margin-bottom: 3rem;
+    }
+
+    @include respond(tablet-portrait) {
+      & > * {
+        margin-bottom: 1.5rem;
+      }
+    }
   }
 }
 
@@ -235,7 +294,7 @@ body {
 .articles-container {
   flex: 1 0 auto;
   background-color: $color-light-gray;
-  padding-top: 3rem;
+  padding-top: 7rem;
 
   .card {
     border-radius: 20px;
@@ -356,7 +415,7 @@ body {
 .new-articles-container {
   flex: 1 0 auto;
   background-color: $color-light-gray;
-  padding-top: 3rem;
+  padding-top: 7rem;
   text-align: center;
 
   h1 {
@@ -370,7 +429,7 @@ body {
   flex: 1 0 auto;
   background-color: $color-light-gray;
   padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 7rem;
   text-align: center;
 
   h1 {
@@ -437,7 +496,7 @@ body {
 .edit-articles-container {
   flex: 1 0 auto;
   background-color: $color-light-gray;
-  padding-top: 3rem;
+  padding-top: 7rem;
   text-align: center;
 
   h1 {

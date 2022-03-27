@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg custom__navbar">
   <%= link_to "Alpha blog", root_path, id: 'logo', class: 'navbar-brand'%>
   <button
     class="navbar-toggler"
@@ -18,15 +18,12 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Articles", articles_path, class: 'nav-link' %>
-      </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link custom__link" href="#">Link</a>
       </li>
       <li class="nav-item dropdown">
         <a
-          class="nav-link dropdown-toggle"
+          class="nav-link dropdown-toggle custom__dropdown"
           href="#"
           id="navbarDropdown"
           role="button"
@@ -34,13 +31,12 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Dropdown
+          Articles
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
+          <%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to "View articles", articles_path, class: 'dropdown-item' %>
         </div>
       </li>
       <li class="nav-item">
