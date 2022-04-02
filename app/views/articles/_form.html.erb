@@ -1,4 +1,5 @@
-<%= render 'shared/errors' %>
+<!-- in the line below we pass the @article as an obj because we use the errors partial with other partials forms too -->
+<%= render 'shared/errors', obj: @article %>
 <div class="custom__form">
   <!--  when passing a model record, Rails infers the URL and method -->
   <!--              model        to use standar http request-->

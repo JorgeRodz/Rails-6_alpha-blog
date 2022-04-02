@@ -1,0 +1,28 @@
+<!-- in the line below we pass the @article as an obj because we use the errors partial with other partials forms too -->
+<%= render 'shared/errors', obj: @user %>
+<div class="custom__form signup__form">
+  <h1 class='signup__form__h1'>Sign up</h1>
+  <p class='signup__form__p'>To start creating awesome articles and share with people</p>
+  <!--  when passing a model record, Rails infers the URL and method -->
+  <!--              model        to use standar http request-->
+  <%= form_with(model: @user, local: true) do |f| %>
+    <p class="custom__input signup__form__field">
+      <%= f.label :username %>
+      <%= f.text_field :username, placeholder: 'Awesome username here', class: 'signup__input' %>
+    </p>
+
+    <p class="custom__input signup__form__field">
+      <%= f.label :email, class: 'email' %>
+      <%= f.email_field :email, placeholder: 'my-email@example.com', class: 'signup__input' %>
+    </p>
+
+    <p class="custom__input signup__form__field">
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: 'A strong password here', class: 'signup__input' %>
+    </p>
+
+    <p class='custom__buttom'>
+      <%= f.submit "Sign up" %>
+    </p>
+  <% end %>
+</div>
