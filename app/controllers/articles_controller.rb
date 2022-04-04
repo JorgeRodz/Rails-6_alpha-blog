@@ -15,7 +15,6 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    # This is possible thanks to the association we have on the models
     @article.user = User.first
     if @article.save
       flash[:notice] = "Article was created successufully"
@@ -49,6 +48,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  # Strong Parameters - to validate what is comming from the form and safety save the correc values.
   def article_params
     params.require(:article).permit(:title, :description)
   end

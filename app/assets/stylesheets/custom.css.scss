@@ -68,7 +68,7 @@ body {
 
 .custom__alert-success {
   margin: 0.5rem auto;
-  text-align: left;
+  text-align: center;
   width: 55rem;
 
   @include respond(tablet-portrait) {
