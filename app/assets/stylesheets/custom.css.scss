@@ -530,6 +530,10 @@ body {
 
     margin-bottom: 1.5rem;
 
+    &:first-of-type {
+      margin-top: 1rem;
+    }
+
     @include respond(tablet-portrait) {
       flex-direction: column;
       gap: 0;
@@ -554,5 +558,18 @@ body {
         width: 100%;
       }
     }
+  }
+}
+
+/*--------------- users/edit -----------------*/
+
+.edit__users__container {
+  flex: 1 0 auto;
+  background-color: $color-light-gray;
+  padding-top: 7rem;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 2rem;
   }
 }

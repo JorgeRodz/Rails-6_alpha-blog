@@ -1,8 +1,10 @@
 <!-- in the line below we pass the @article as an obj because we use the errors partial with other partials forms too -->
 <%= render 'shared/errors', obj: @user %>
 <div class="custom__form signup__form">
-  <h1 class='signup__form__h1'>Sign up</h1>
-  <p class='signup__form__p'>To start creating awesome articles and share with people</p>
+    <% if @user.new_record? %>
+      <h1 class='signup__form__h1'>Sign up</h1>
+      <p class='signup__form__p'>To start creating awesome articles and share with people</p>
+    <% end %>
   <!--  when passing a model record, Rails infers the URL and method -->
   <!--              model        to use standar http request-->
   <%= form_with(model: @user, local: true) do |f| %>
@@ -22,7 +24,7 @@
     </p>
 
     <p class='custom__buttom'>
-      <%= f.submit "Sign up" %>
+      <%= f.submit(@user.new_record? ? "Sign up" : "Update account") %>
     </p>
   <% end %>
 </div>
