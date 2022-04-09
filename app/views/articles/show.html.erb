@@ -5,12 +5,12 @@
 
   <div class="card text-center">
     <div class="card-header font-italic">
-      by <%= @article.user.username if @article.user %>
+      <p class="card-header-p">by <%= @article.user.username if @article.user %></p>
+      <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
     </div>
     <div class="card-body">
       <div class="card-text"><%= simple_format(@article.description) %></div>
       <div class="card__buttons">
-
         <%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary' %>
         <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'  %>
     </div>

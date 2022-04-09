@@ -454,6 +454,12 @@ body {
       width: 85%;
     }
 
+    &-header {
+      &-p {
+        margin-bottom: 0;
+      }
+    }
+
     &-body {
       padding: 2rem;
 
@@ -578,4 +584,11 @@ body {
 
 .user__show__h3 {
   margin-top: 3rem;
+}
+
+#user__btn-edit {
+  display: block;
+  width: 10%;
+  margin: 0 auto;
+  margin-top: 2rem;
 }

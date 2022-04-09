@@ -1,7 +1,9 @@
 <% @articles.reverse_each do |article| %>
   <div class="card text-center">
     <div class="card-header font-italic">
-      by <%= article.user.username if article.user %>
+      <% if article.user %>
+        by <%= link_to article.user.username, user_path(article.user) %>
+      <% end %>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= article.title %></h5>
