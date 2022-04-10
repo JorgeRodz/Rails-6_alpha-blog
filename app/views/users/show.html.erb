@@ -8,6 +8,20 @@
 
   <h3 class="user__show__h3">Articles</h3>
 
+  <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => true %>
+  </div>
+
   <%= render "articles/article" %>
+
+  <div class="digg_pagination bottom">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => true %>
+  </div>
 
 </div>
