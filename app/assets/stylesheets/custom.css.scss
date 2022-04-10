@@ -30,6 +30,8 @@
 /*--------------- Variables -----------------*/
 
 $color-black: #222222;
+
+$color-dark-gray: #494949;
 $color-light-gray: #ebebeb;
 
 $color-light-green: #96ffc5;
@@ -74,6 +76,83 @@ body {
   @include respond(tablet-portrait) {
     width: 90%;
   }
+}
+
+/*--------------- pagination -----------------*/
+
+.digg_pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* self-clearing method: */
+}
+.bottom {
+  margin-bottom: 3rem;
+}
+.digg_pagination a,
+.digg_pagination span,
+.digg_pagination em {
+  padding: 0.2em 0.5em;
+  display: block;
+  float: left;
+  margin-right: 1px;
+  border-radius: 20px;
+  margin: 0 1px;
+  transition: all 0.1s;
+}
+.digg_pagination .disabled {
+  color: #999999;
+  border: 1px solid #dddddd;
+}
+.digg_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background: $color-dark-gray;
+  color: white;
+  border: 1px solid $color-dark-gray;
+}
+.digg_pagination a {
+  text-decoration: none;
+  color: $color-black;
+  border: 1px solid $color-black;
+}
+.digg_pagination a:hover,
+.digg_pagination a:focus {
+  color: #959595;
+  border-color: #959595;
+  text-decoration: none;
+}
+.digg_pagination .page_info {
+  background: $color-dark-gray;
+  color: white;
+  padding: 0.4em 0.6em;
+  width: 22em;
+  margin-bottom: 0.3em;
+  text-align: center;
+  border-radius: 20px;
+
+  @include respond(phone) {
+    width: 93%;
+  }
+}
+.digg_pagination .page_info b {
+  color: $color-black;
+  background: $color-light-gray;
+  padding: 0.1em 0.25em;
+  border-radius: 5px;
+}
+.digg_pagination:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+* html .digg_pagination {
+  height: 1%;
+}
+*:first-child + html .digg_pagination {
+  overflow: hidden;
 }
 
 /*---------------- application.html.erb ----------------*/
@@ -295,6 +374,10 @@ body {
   flex: 1 0 auto;
   background-color: $color-light-gray;
   padding-top: 7rem;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
 }
 
 .card {
@@ -584,6 +667,7 @@ body {
 
 .user__show__h3 {
   margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 #user__btn-edit {
