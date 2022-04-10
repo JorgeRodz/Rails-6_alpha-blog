@@ -4,6 +4,20 @@
 
   <h1>Articles listing page</h1>
 
+  <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => true %>
+  </div>
+
   <%= render "article" %>
+
+  <div class="digg_pagination bottom">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => true %>
+  </div>
 
 </div>
