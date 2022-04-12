@@ -6,7 +6,7 @@
       <p class='signup__form__p'>To start creating awesome articles and share with people</p>
     <% end %>
   <!--  when passing a model record, Rails infers the URL and method -->
-  <!--              model        to use standar http request-->
+  <!--              model    to use standar http request-->
   <%= form_with(model: @user, local: true) do |f| %>
     <p class="custom__input signup__form__field">
       <%= f.label :username %>

@@ -676,3 +676,13 @@ body {
   margin: 0 auto;
   margin-top: 2rem;
 }
+
+/*--------------- sessions/new -----------------*/
+
+.sessions__container {
+  flex: 1 0 auto;
+
+  background-color: $color-light-gray;
+  padding-top: 7rem;
+  text-align: center;
+}
