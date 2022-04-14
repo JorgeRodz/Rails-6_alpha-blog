@@ -1,5 +1,7 @@
 <div class="users__container">
 
+  <%= render partial: "shared/messages", locals: { messages: @shared } %>
+
   <h1><%= @user.username %>'s profile</h1>
 
   <%= gravatar_for @user, size: 200 %>

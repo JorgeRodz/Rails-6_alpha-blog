@@ -1,5 +1,5 @@
 <div class="show-articles-container">
-  <%= render 'messages' %>
+  <%= render partial: "shared/messages", locals: { messages: @shared } %>
 
   <h2><%= @article.title %></h2>
 

@@ -8,4 +8,30 @@ module ApplicationHelper
     image_tag(gravatar_url, alt: user.username, class: "rounded shadow")
   end
 
+  def render_flash_messages(name, msg)
+    content = ""
+
+    if name == "notice"
+      content << "
+        <div class='alert alert-success custom__alert-error alert-dismissible fade show' role='alert'>
+        #{msg}
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>"
+    end
+
+    if name == "alert"
+      content << "
+        <div class='alert alert-warning custom__alert-error alert-dismissible fade show' role='alert'>
+        #{msg}
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>"
+    end
+
+    content.html_safe
+  end
+
 end
