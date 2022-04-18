@@ -39,12 +39,21 @@
           <%= link_to "View articles", articles_path, class: 'dropdown-item' %>
         </div>
       </li>
-      <li class="nav-item">
+      <% if logged_in? %><!-- render depends if user is logged in -->
+        <li class="nav-item">
+            <%= link_to current_user.username, user_path(current_user), class: "nav-link custom__link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Log out", logout_path, class: "nav-link custom__link", method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item">
           <%= link_to "Log in", login_path, class: "nav-link custom__link" %>
-      </li>
-      <li class="nav-item">
-          <%= link_to "Log out", logout_path, class: "nav-link custom__link", method: :delete %>
-      </li>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sing up", signup_path, class: "nav-link custom__link" %>
+        </li>
+      <% end %><!-- render depends if user is logged in -->
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input

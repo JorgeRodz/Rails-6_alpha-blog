@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Logged in succesfully"
       redirect_to user
     else
-      flash.now[:alert] = "#{ user ? 'Wrong password' : 'User not found'}"
+      flash.now[:alert] = "Wrong email/password"
       render 'new'
     end
   end
