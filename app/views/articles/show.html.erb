@@ -10,10 +10,12 @@
     </div>
     <div class="card-body">
       <div class="card-text"><%= simple_format(@article.description) %></div>
-      <div class="card__buttons">
-        <%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary' %>
-        <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'  %>
-    </div>
+      <% if logged_in? && @article.user == current_user %>
+        <div class="card__buttons">
+          <%= link_to "Edit", edit_article_path(@article), class: 'btn btn-primary' %>
+          <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'  %>
+      </div>
+      <% end %>
     </div>
     <div class="card-footer text-muted">
       <small>Created ago <%= time_ago_in_words(@article.created_at) %>, edited ago <%= time_ago_in_words(@article.updated_at) %></small>

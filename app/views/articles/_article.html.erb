@@ -10,8 +10,10 @@
       <p class="card-text"><%= truncate(article.description, length: 100) %></p>
       <div class="card__buttons">
         <%= link_to "View", article_path(article), method: :get, class: 'btn btn-success' %>
-        <%= link_to "Edit", edit_article_path(article), class: 'btn btn-primary' %>
-        <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'  %>
+        <% if logged_in? && article.user == current_user %>
+          <%= link_to "Edit", edit_article_path(article), class: 'btn btn-primary' %>
+          <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'  %>
+        <% end %>
     </div>
     </div>
     <div class="card-footer text-muted">
