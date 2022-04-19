@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  # restrictions
+  before_action :require_login_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destory]
 
   def show
   end
@@ -51,6 +54,13 @@ class ArticlesController < ApplicationController
   # Strong Parameters - to validate what is comming from the form and safety save the correc values.
   def article_params
     params.require(:article).permit(:title, :description)
+  end
+
+  def require_same_user
+    if current_user != @article.user
+      flash[:alert] = "You can only edit and delete article's of your own"
+      redirect_to @article
+    end
   end
 
 end
