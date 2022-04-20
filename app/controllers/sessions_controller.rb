@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :require_logout, except: [:destroy]
 
   def new
   end
@@ -19,6 +20,12 @@ class SessionsController < ApplicationController
     session[:user_id] = nil # to log ut user session
     flash[:notice] = "Logged out"
     redirect_to root_path
+  end
+
+  def require_logout
+    if logged_in?
+      redirect_to user_path(current_user)
+    end
   end
 
 end
