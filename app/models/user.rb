@@ -11,7 +11,8 @@
 #
 class User < ApplicationRecord
   before_save :actions # to execute this actions before save
-  has_many :articles
+  #                     ⬇️ to delete all the elements who dependent on the user
+  has_many :articles, dependent: :destroy
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: {minimum:3, maximum:25}

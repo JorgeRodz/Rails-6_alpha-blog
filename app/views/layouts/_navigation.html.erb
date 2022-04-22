@@ -57,10 +57,8 @@
             <%= link_to "View profile", user_path(current_user), class: "dropdown-item" %>
             <!--<div class="dropdown-divider"></div>-->
             <%= link_to "Edit profile", edit_user_path(current_user), class: 'dropdown-item' %>
+            <%= link_to "Delete profile", user_path(current_user), method: :delete, data: { confirm: "Are you sure?" }, class: 'dropdown-item text-danger' %>
           </div>
-        </li>
-        <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: "nav-link custom__link" %>
         </li>
         <li class="nav-item">
             <%= link_to "Log out", logout_path, class: "nav-link custom__link", method: :delete %>
