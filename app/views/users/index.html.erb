@@ -22,8 +22,13 @@
         <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
           <div class="card__buttons">
             <%= link_to "View profile", user, class: 'btn btn-success' %>
-            <% if logged_in? && user == current_user %>
-              <%= link_to "Edit profile", edit_user_path(user), class: 'btn btn-primary' %>
+            <% if logged_in? %>
+              <% if user == current_user %>
+                <%= link_to "Edit profile", edit_user_path(user), class: 'btn btn-primary' %>
+              <% end %>
+              <% if current_user.admin? %>
+                <%= link_to "Delete user", user_path(user), data: {confirm: "Are you sure you want to delete the user account and all associated articles?"} ,method: :delete, class: 'btn btn-danger' %>
+              <% end %>
             <% end %>
           </div>
       </div>
