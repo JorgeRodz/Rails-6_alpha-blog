@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    session[:user_id] = nil if @user == current_user #clean up the session otherwise the session will have the deleted user store
+    session[:user_id] = nil if @user == current_user #clean up the session when a user delete their own account
     flash[:notice] = "Account and all the associated articles succesfully deleted"
     redirect_to root_path
   end

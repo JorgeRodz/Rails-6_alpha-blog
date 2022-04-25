@@ -31,6 +31,16 @@ module ApplicationHelper
       </div>"
     end
 
+    if name == "danger"
+      content << "
+        <div class='alert alert-danger custom__alert-error alert-dismissible fade show' role='alert'>
+        #{msg}
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>&times;</span>
+        </button>
+      </div>"
+    end
+
     content.html_safe
   end
 
