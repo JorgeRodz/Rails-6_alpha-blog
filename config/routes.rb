@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # This is the index page of our app
   root 'pages#home'
 
-  # assing a route using a controller
+  # assign a route using a controller
   get 'about', to: 'pages#about'
 
   # ---------- articles routes ----------
@@ -14,15 +14,17 @@ Rails.application.routes.draw do
 
 
   # ---------- users routes ----------
-
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
 
 
   # ---------- session routes ----------
-
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
+
+
+  #--------------- categories -----------------
+  resources :categories, except: [:destroy]
 
 end
