@@ -1,0 +1,15 @@
+<%= render 'shared/errors', obj: @category %>
+<div class="custom__form">
+  <!--  when passing a model record, Rails infers the URL and method -->
+  <!--              model        to use standar http request-->
+  <%= form_with(model: @category, local: true) do |f| %>
+    <p class="custom__input">
+      <%= f.label :name, "Category name" %><br/>
+      <%= f.text_field :name, placeholder: 'Category name here' %>
+    </p>
+
+    <p class='custom__buttom'>
+      <%= f.submit "Submit" %>
+    </p>
+  <% end %>
+</div>

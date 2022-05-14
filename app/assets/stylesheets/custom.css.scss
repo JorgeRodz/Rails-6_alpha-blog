@@ -688,3 +688,16 @@ body {
   padding-top: 7rem;
   text-align: center;
 }
+
+/*--------------- categories/new -----------------*/
+
+.categories-container {
+  flex: 1 0 auto;
+  background-color: $color-light-gray;
+  padding-top: 7rem;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 2rem;
+  }
+}
