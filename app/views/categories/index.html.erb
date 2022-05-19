@@ -1,0 +1,30 @@
+<div class="categories-container">
+
+    <h1>Categories</h1>
+
+    <div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @categories %>
+    </div>
+    <%= will_paginate @categories, :container => true %>
+  </div>
+
+  <% @categories.each do |category| %>
+    <div class="card text-center card-categories">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to category.name, category_path(category), class: "text-success" %></h5>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created ago <%= time_ago_in_words(category.created_at) %>, edited ago <%= time_ago_in_words(category.updated_at) %></small>
+      </div>
+    </div>
+  <% end %>
+
+    <div class="digg_pagination bottom">
+    <div class="page_info">
+      <%= page_entries_info @categories %>
+    </div>
+    <%= will_paginate @categories, :container => true %>
+  </div>
+
+</div>
