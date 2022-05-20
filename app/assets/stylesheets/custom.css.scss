@@ -703,6 +703,10 @@ body {
 }
 
 .card-categories {
-  width: 30%;
+  width: 20%;
   border-radius: 15px !important;
+
+  @include respond(phone) {
+    width: 80%;
+  }
 }
