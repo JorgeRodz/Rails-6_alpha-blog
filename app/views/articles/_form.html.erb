@@ -14,6 +14,13 @@
       <%= f.text_area :description, placeholder: 'Awesome description here' %>
     </p>
 
+    <p class="custom__input">
+      <%= f.label :category, 'Category (You can select multiple categories if require)' %><br/>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+        <% cb.label(class: "checkbox-inline input_checkbox mr-5 font-weight-lighter font-italic") { cb.check_box(class: "checkbox") + cb.text } %>
+      <% end %>
+    </p>
+
     <p class='custom__buttom'>
       <%= if @article.id
           f.submit "Update article"

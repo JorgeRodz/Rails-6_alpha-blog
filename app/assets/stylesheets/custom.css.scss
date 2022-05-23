@@ -431,6 +431,7 @@ body {
   padding: 1rem 2rem;
   text-align: left;
   width: 55rem;
+  margin-bottom: 4rem;
 
   @include respond(tablet-portrait) {
     width: 90%;

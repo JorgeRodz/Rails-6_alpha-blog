@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   # restrictions
   before_action :require_login_user, except: [:show, :index]
-  before_action :require_same_user, only: [:edit, :update, :destory]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -17,10 +17,11 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    byebug
     @article = Article.new(article_params)
     @article.user = current_user # To assign the new article to the user who is logged in
     if @article.save
-      flash[:notice] = "Article was created successufully"
+      flash[:notice] = "Article was created successfully"
       redirect_to @article # Here we redirect to the 'show' action, to see the new article information we add.
     else
       render 'new'
@@ -32,7 +33,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      flash[:notice] = "Article was updated succesfully"
+      flash[:notice] = "Article was updated successfully"
       redirect_to @article # Here we redirect to the 'show' action, to see the new article information we add.
     else
       render 'edit'
@@ -51,9 +52,9 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
-  # Strong Parameters - to validate what is comming from the form and safety save the correc values.
+  # Strong Parameters - to validate what is coming from the form and safety save the correc values.
   def article_params
-    params.require(:article).permit(:title, :description)
+    params.require(:article).permit(:title, :description, category_ids: [])
   end
 
   def require_same_user
