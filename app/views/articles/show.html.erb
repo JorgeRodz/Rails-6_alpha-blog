@@ -6,7 +6,12 @@
   <div class="card text-center">
     <div class="card-header font-italic">
       <p class="card-header-p">by <%= @article.user.username if @article.user %></p>
-      <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+      <%= link_to gravatar_for(@article.user), user_path(@article.user), class: "card-header-a" %>
+      <% if @article.categories.any? %>
+        <% # render _category partial, no need to add a loop in order to iterate all categories %>
+        <% # makes avalible a 'category' object on the _category partial %>
+        <%= render @article.categories %>
+      <% end %>
     </div>
     <div class="card-body">
       <div class="card-text"><%= simple_format(@article.description) %></div>

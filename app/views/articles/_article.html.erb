@@ -1,8 +1,13 @@
 <% @articles.each do |article| %>
   <div class="card text-center">
     <div class="card-header font-italic">
-      <% if article.user %>
+      <p class="mb-0">
+        <% if article.user %>
         by <%= link_to article.user.username, user_path(article.user) %>
+      <% end %>
+      </p>
+      <% if article.categories.any? %>
+        <%= render article.categories %>
       <% end %>
     </div>
     <div class="card-body">
