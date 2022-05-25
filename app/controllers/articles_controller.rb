@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    byebug
     @article = Article.new(article_params)
     @article.user = current_user # To assign the new article to the user who is logged in
     if @article.save

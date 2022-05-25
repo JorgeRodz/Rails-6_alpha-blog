@@ -21,6 +21,8 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    # Assigning the articles who correspond to the category, this because we render the _article partial for every corresponding article
+    @articles = @category.articles.paginate(page: params[:page], per_page: 5)
   end
 
   #--------------- private -----------------

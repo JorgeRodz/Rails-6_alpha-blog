@@ -16,6 +16,7 @@
       <div class="card-body">
         <h5 class="card-title"><%= link_to category.name, category_path(category), class: "text-success" %></h5>
       </div>
+      <p class="card-text"><%= pluralize(category.articles.count, "category") %></p>
       <div class="card-footer text-muted">
         <small>Created ago <%= time_ago_in_words(category.created_at) %>, edited ago <%= time_ago_in_words(category.updated_at) %></small>
       </div>
