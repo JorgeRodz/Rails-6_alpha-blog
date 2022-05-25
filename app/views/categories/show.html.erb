@@ -1,4 +1,7 @@
 <div class="categories-container">
+
+  <%= render partial: "shared/messages", locals: { messages: @shared } %>
+
   <h1>Category: <%= @category.name %></h1>
 
   <% if logged_in? && current_user.admin? %>
