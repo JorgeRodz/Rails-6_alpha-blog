@@ -32,7 +32,7 @@ Features:
   - Routing
   - Views Partial
   - Gems management
-  - Minites
+  - Minitest
     - Model and Controller assertions
 - Bootstrap
   - Add components and manage bootstrap classes
