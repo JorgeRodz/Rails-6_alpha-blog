@@ -32,6 +32,8 @@ Features:
   - Routing
   - Views Partial
   - Gems management
+  - Minites
+    - Model and Controller assertions
 - Bootstrap
   - Add components and manage bootstrap classes
   - Override default bootstap classes
