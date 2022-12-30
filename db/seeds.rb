@@ -6,17 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create email: "jarf4321@gmail.com", username: "jarf", password: "jorge123", admin: true
+User.create email: 'jarf4321@gmail.com', username: 'jarf', password: 'jorge1234', admin: true
 
-['leon', 'andres', 'natalia', 'camilo', 'rusbel', 'johan'].each do |name|
-	User.create email: "#{name}@gmail.com", username: name, password: "#{name}123"
+%w[leon andres natalia camilo rusbel johan].each do |name|
+  User.create email: "#{name}@gmail.com", username: name, password: "#{name}123"
 end
 
 puts 'Users has been created'
 
-['Restaurant', 'Sports', 'Travel', 'Cars', 'Tech', 'Science'].each do |name|
-	Category.create name: name
+%w[Restaurant Sports Travel Cars Tech Science].each do |name|
+  Category.create name: name
 end
 
 puts 'Categories has been created'
-
